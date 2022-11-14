@@ -1,0 +1,14 @@
+<a href="{% url 'home' %}">Главная страница</a>
+{% if user.is_authenticated %}
+Здарвствуйте, {{ user.username }}
+    <form action="{% url 'logoutuser' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Выход</button>
+    </form>
+{% else %}
+<a href="{% url 'signupuser' %}">Регистрация</a>
+<a href="{% url 'loginuser' %}">Вход</a>
+{% endif %}
+<br>
+<br>
+{% block content %}{% endblock %}
