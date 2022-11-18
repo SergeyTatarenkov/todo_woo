@@ -1,0 +1,13 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+     <h1>Выполненные задачи</h1>
+    <ul>
+{% for task in tasks %}
+    <li>{% if task.important %}<b>{% endif %}{{ task.title }}{% if task.important %}</b>{% endif %}
+        {% if task.memo %}   {{ task.memo }}{% endif %}
+        {% if task.datecomplited %}   <b>Выполнена: {{ task.datecomplited|date:'d M Y H:i'}}</b> {% endif %}
+    </li>
+    <hr>
+{% endfor %}
+    </ul>
+{% endblock %}

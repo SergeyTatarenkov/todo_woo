@@ -27,5 +27,10 @@ urlpatterns = [
 
     #to_do
     path('current/', views.currenttodos, name='currenttodos'),
+    path('completed/', views.completedtasks, name='completedtasks'),
+    path('create/', views.createtask, name='createtask'),
+    path('task/<int:task_pk>', views.edittask, name='edittask'),
+    path('task/<int:task_pk>/complete', views.completetask, name='completetask'),
+    path('task/<int:task_pk>/delete', views.deletetask, name='deletetask'),
     path('', views.home, name='home'),
 ]

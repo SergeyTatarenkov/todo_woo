@@ -1,0 +1,20 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+     <h1>Редактировать задачу</h1>
+    {{ error }}
+{{ task.title }}
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+    </form>
+        <form method="POST" action="{% url 'completetask' task.id %}">
+    {% csrf_token %}
+    <button type="submit">Выполнено</button>
+    </form>
+    </form>
+        <form method="POST" action="{% url 'deletetask' task.id %}">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+    </form>
+{% endblock %}
